@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ShoppingCartButton from '../components/ShoppingCartButton';
 
 class Home extends Component {
   render() {
@@ -8,8 +9,8 @@ class Home extends Component {
           <input
             id="home-message"
             type="text"
-            value=""
           />
+          <ShoppingCartButton />
           <h2
             data-testid="home-initial-message"
           >
