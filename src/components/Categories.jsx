@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { getCategories } from '../services/api';
+import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import SearchFilter from './SearchFilter';
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
       categories: [],
+      productsFiltered: [],
     };
   }
 
@@ -18,20 +20,34 @@ class Categories extends Component {
       .then((data) => this.setState({ categories: data }));
   }
 
+  filterProduct = async (_event, categoryID) => {
+    const productsFiltered = await getProductsFromCategoryAndQuery(categoryID);
+
+    console.log(categoryID);
+    console.log(productsFiltered.results);
+
+    this.setState({
+      productsFiltered: productsFiltered.results,
+    });
+  }
+
   render() {
-    const { categories } = this.state;
+    const { categories, productsFiltered } = this.state;
     return (
       <div>
         <ul>
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <li
-              key={ index }
+              role="menuitem"
+              onKeyDown={ this.filterProduct }
+              key={ category.id }
               data-testid="category"
+              onClick={ (event) => this.filterProduct(event, category.id) }
             >
-              <input type="checkbox" key={ index } />
               {category.name}
             </li>))}
         </ul>
+        <SearchFilter list={ productsFiltered } />
       </div>
     );
   }
