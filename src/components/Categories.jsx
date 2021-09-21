@@ -36,6 +36,7 @@ class Categories extends Component {
           {categories.map((category) => (
             <li
               role="menuitem"
+              type="button"
               onKeyDown={ this.filterProduct }
               key={ category.id }
               data-testid="category"
