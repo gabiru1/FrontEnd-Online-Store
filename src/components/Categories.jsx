@@ -23,9 +23,6 @@ class Categories extends Component {
   filterProduct = async (_event, categoryID) => {
     const productsFiltered = await getProductsFromCategoryAndQuery(categoryID);
 
-    console.log(categoryID);
-    console.log(productsFiltered.results);
-
     this.setState({
       productsFiltered: productsFiltered.results,
     });
