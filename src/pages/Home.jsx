@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import SearchFilter from '../components/SearchFilter';
 import Categories from '../components/Categories';
+import ShoppingCartButton from '../components/ShoppingCartButton';
 
 class Home extends Component {
   constructor() {
@@ -44,6 +45,7 @@ class Home extends Component {
             value={ userText }
             onChange={ this.handleChange }
           />
+          <ShoppingCartButton />
           <h2
             data-testid="home-initial-message"
           >
