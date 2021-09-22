@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Rating from '../components/Rating';
 
 class ProductDetails extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class ProductDetails extends Component {
               { `${specification.name}: ${specification.value_name}` }
             </li>))}
         </ul>
-
+        <Rating />
       </section>
     );
   }
