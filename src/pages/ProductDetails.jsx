@@ -30,18 +30,18 @@ class ProductDetails extends Component {
         <p data-testid="product-detail-name">{ product.title }</p>
         <span>{`- R$ ${product.price}`}</span>
         <img src={ product.thumbnail } alt={ `foto do produto ${product.title}` } />
-        <section>
-          <ul>
-            <li>{`Garantia: ${product.warranty}`}</li>
-            {requestComplete
-             && product.attributes.map((specification, index) => (
-               <li
-                 key={ index }
-               >
-                 { `${specification.name}: ${specification.value_name}` }
-               </li>))}
-          </ul>
-        </section>
+
+        <ul>
+          <li>{`Garantia: ${product.warranty}`}</li>
+          {requestComplete
+          && product.attributes.map((specification, index) => (
+            <li
+              key={ index }
+            >
+              { `${specification.name}: ${specification.value_name}` }
+            </li>))}
+        </ul>
+
       </section>
     );
   }
