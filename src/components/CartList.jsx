@@ -24,22 +24,23 @@ class CartList extends Component {
 
   render() {
     const { cart } = this.state;
-    if (cart.length > 0) {
+    console.log(cart);
+    if (!cart[0]) {
       return (
-        <div
-          data-testid="shopping-cart-product-name"
-        >
-          <h2>{cart[0].title}</h2>
-          <h3
-            data-testid="shopping-cart-product-quantity"
-          >
-            1
-          </h3>
-        </div>
+        <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
       );
     }
     return (
-      <p>Seu carrinho está vazio</p>
+      <div
+        data-testid="shopping-cart-product-name"
+      >
+        <h2>{cart[0].title}</h2>
+        <h3
+          data-testid="shopping-cart-product-quantity"
+        >
+          1
+        </h3>
+      </div>
     );
   }
 }
