@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// Requisito 7
 
 class CardItems extends Component {
   saveItemOnCart = (product) => {
