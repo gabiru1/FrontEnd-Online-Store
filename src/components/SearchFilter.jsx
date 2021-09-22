@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CardItems from './CardItems';
 
 class SearchFilter extends Component {
   render() {
@@ -8,13 +9,7 @@ class SearchFilter extends Component {
     return (
       <div>
         {
-          list.map(({ id, title, thumbnail, price }) => (
-            <div key={ id } data-testid="product">
-              <h2>{ title }</h2>
-              <img src={ thumbnail } alt="Imagem do produto" />
-              <h3>{`Preço: R$${price}`}</h3>
-            </div>
-          ))
+          list.map((product) => <CardItems product={ product } key={ product.id } />)
         }
       </div>
     );
