@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import CardItems from './CardItems';
 
 class SearchFilter extends Component {
   render() {
@@ -9,18 +9,7 @@ class SearchFilter extends Component {
     return (
       <div>
         {
-          list.map(({ id, title, thumbnail, price }) => (
-            <div data-testid="product" key={ id }>
-              <Link
-                to={ `/productdetails/${id}` }
-                data-testid="product-detail-link"
-              >
-                <h2>{ title }</h2>
-                <img src={ thumbnail } alt="Imagem do produto" />
-                <h3>{`Preço: R$${price}`}</h3>
-              </Link>
-            </div>
-          ))
+          list.map((product) => <CardItems product={ product } key={ product.id } />)
         }
       </div>
     );
